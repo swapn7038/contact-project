@@ -15,14 +15,3 @@ app.use(errorHandler);
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
-// 41:00
-
-// mongo db
-// swapycodes
-// GBgcWzRuK7R4mYUX
-
-// I was entering the wrong password dude
-// mistakes happen's brother let it be
-
-// enter the password which is given by mongoDB itself
