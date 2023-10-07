@@ -1,5 +1,7 @@
-import expressAsyncHandler from "express-async-handler";
-import { BSONRegExp } from "mongodb";
+// import expressAsyncHandler from "express-async-handler";
+// import { BSONRegExp } from "mongodb";
+
+const expressAsyncHandler = require("express-async-handler");
 
 // 1
 
