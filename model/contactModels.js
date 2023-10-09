@@ -1,4 +1,4 @@
-const { Timestamp } = require("mongodb");
+const Timestamp = require("mongodb");
 const mongoose = require("mongoose");
 
 const contactSchemas = mongoose.Schema(
@@ -19,8 +19,8 @@ const contactSchemas = mongoose.Schema(
     },
   },
   {
-    timestamp: true,
+    Timestamp: true,
   }
 );
 
-export.default = mongoose.
+module.exports = mongoose.model("ContactSchemas", contactSchemas);

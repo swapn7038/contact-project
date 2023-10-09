@@ -2,6 +2,7 @@
 // import { BSONRegExp } from "mongodb";
 
 const expressAsyncHandler = require("express-async-handler");
+const Contact = require("../model/contactModels");
 
 // 1
 
@@ -9,7 +10,8 @@ const expressAsyncHandler = require("express-async-handler");
 //@route GET /api/contacts
 //@access public
 const getContacts = expressAsyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Get contacts" });
+  const Contacts = await Contact.find();
+  res.status(200).json(Contacts);
 });
 
 // 2
@@ -19,12 +21,14 @@ const getContacts = expressAsyncHandler(async (req, res) => {
 //@access public
 const createContact = expressAsyncHandler(async (req, res) => {
   console.log("The request body is", req.body); // use comma here, not plus sign not backticks
-  const { name, address, phoneno } = req.body;
-  if (!name || !address || !phoneno) {
+  const { name, email, phone } = req.body;
+  if (!name || !email || !phone) {
     res.status(400);
     throw Error("All fields are mandatory !");
   }
-  res.status(201).json({ message: "Create contacts" });
+
+  const contacts = await Contact.create({ name, email, phone });
+  res.status(201).json(contacts);
 });
 
 // 3 get contacts
