@@ -10,8 +10,8 @@ const Contact = require("../model/contactModels");
 //@route GET /api/contacts
 //@access public
 const getContacts = expressAsyncHandler(async (req, res) => {
-  const Contacts = await Contact.find();
-  res.status(200).json(Contacts);
+  const contacts = await Contact.find();
+  res.status(200).json(contacts);
 });
 
 // 2
@@ -26,9 +26,9 @@ const createContact = expressAsyncHandler(async (req, res) => {
     res.status(400);
     throw Error("All fields are mandatory !");
   }
-
-  const contacts = await Contact.create({ name, email, phone });
-  res.status(201).json(contacts);
+  const contact = await Contact.create({ name, email, phone });
+  // res.status(201).json(contacts);
+  res.status(201).json(contact);
 });
 
 // 3 get contacts

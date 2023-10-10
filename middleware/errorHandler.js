@@ -19,6 +19,7 @@ const errorHandler = (err, req, res, next) => {
         stackTrace: err.stack,
       });
       break;
+
     case constants.FORBIDDEN:
       // 403 : forbidden
       res.json({
